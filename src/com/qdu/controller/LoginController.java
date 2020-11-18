@@ -62,7 +62,8 @@ public class LoginController {
 		ModelAndView mav = new ModelAndView();
 		List<User> list = userService.checkUserLogin(user);
 		if(list.size() == 1) {
-			mav.setViewName("success");
+			mav.setViewName("home");
+			mav.addObject("username", user.getUsername());
 			return mav;
 		}
 		mav.setViewName("error");
