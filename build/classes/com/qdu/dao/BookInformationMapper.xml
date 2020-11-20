@@ -3,7 +3,16 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qdu.dao.BookInformationMapper">
-	<select id="searchBookByName" resultType="com.qdu.bean.Book">
+	<select id="searchBookByName" resultType="com.qdu.bean.Book" parameterType="String">
 		select * from books where bookname = #{bookname}
+	</select>
+	<select id="searchBookById" parameterType="String" resultType="com.qdu.bean.Book">
+		select * from books where bookid = #{bookid}
+	</select>
+	<insert id="submitRentInformation" parameterType="com.qdu.bean.RentInformation">
+		insert into user_book(username, bookid, bookname, day, startdate, enddate, state) values(#{username}, #{bookid}, #{bookname}, #{day}, #{startdate}, #{enddate}, #{state})
+	</insert>
+	<select id="checkRentInformationOnly" parameterType="String" resultType="com.qdu.bean.RentInformation">
+		select * from user_book where username = #{username} and bookid = #{bookid}
 	</select>
 </mapper>

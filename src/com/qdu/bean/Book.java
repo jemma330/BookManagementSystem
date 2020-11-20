@@ -2,20 +2,13 @@ package com.qdu.bean;
 
 public class Book {
 
-	private int id;
+	private int bookid;
 	private String bookname;
 	private String author;
 	private String description;
+	private String publisher;
 	private int totalnumber;
 	private int currentnumber;
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public String getBookname() {
 		return bookname;
@@ -57,10 +50,27 @@ public class Book {
 		this.currentnumber = currentnumber;
 	}
 
+	public int getBookid() {
+		return bookid;
+	}
+
+	public void setBookid(int bookid) {
+		this.bookid = bookid;
+	}
+
+	public String getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
+	}
+
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", bookname=" + bookname + ", author=" + author + ", description=" + description
-				+ ", totalnumber=" + totalnumber + ", currentnumber=" + currentnumber + "]";
+		return "Book [bookid=" + bookid + ", bookname=" + bookname + ", author=" + author + ", description="
+				+ description + ", publisher=" + publisher + ", totalnumber=" + totalnumber + ", currentnumber="
+				+ currentnumber + "]";
 	}
 
 }

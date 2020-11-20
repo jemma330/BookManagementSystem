@@ -48,7 +48,7 @@
 			</div>
 			<!-- 管理员登录标签页 -->
 			<div role="tabpanel" class="tab-pane" id="profile" style="margin-left: 50px">
-				<form class="form-inline" action="${pageContext.request.contextPath }/userLogin" method="post">
+				<form class="form-inline" action="${pageContext.request.contextPath }/adminLogin" method="post">
 					<div class="form-group" style="margin-top: 20px; margin-left: 30px">
 						<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 						<input type="text" class="form-control" name="adminname">

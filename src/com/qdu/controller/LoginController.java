@@ -2,6 +2,9 @@ package com.qdu.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -58,12 +61,14 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value = "/userLogin", method = RequestMethod.POST)
-	public ModelAndView userLogin(User user) {
+	public ModelAndView userLogin(User user, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		List<User> list = userService.checkUserLogin(user);
 		if(list.size() == 1) {
 			mav.setViewName("home");
 			mav.addObject("username", user.getUsername());
+			HttpSession session = request.getSession();
+			session.setAttribute("username", user.getUsername());
 			return mav;
 		}
 		mav.setViewName("error");
