@@ -58,7 +58,7 @@
 	</nav>
 	<!-- 导航栏结束 -->
 		
-	<form action="${pageContext.request.contextPath }/rentbookInformation" class="form-horizontal" style="margin-top: 100px; margin-right:400px; margin-left:300px">
+	<form action="${pageContext.request.contextPath }/rentbookInformation.do" class="form-horizontal" style="margin-top: 100px; margin-right:400px; margin-left:300px">
 		<div style="margin-bottom: 30px; font-size: 20px" align="center">
 			<label>Borrowing information</label>
 		</div>

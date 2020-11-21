@@ -30,5 +30,13 @@ public class BookInformationService {
 	public List<RentInformation> checkRentInformationOnly(RentInformation rent) {
 		return bookInformationMapper.checkRentInformationOnly(rent);
 	}
+
+	public List<String> allcategory() {
+		return bookInformationMapper.allcategory();
+	}
+
+	public List<Book> searchBookByCategory(String categoryname) {
+		return bookInformationMapper.searchBookByCategory(categoryname);
+	}
 	
 }

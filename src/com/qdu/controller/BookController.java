@@ -22,17 +22,18 @@ public class BookController {
 	@Autowired
 	private BookInformationService bookInformationService;
 	
-	@RequestMapping(value = "/search")
-	public ModelAndView searchBookInformation(Book book, HttpServletRequest request) {
+	@RequestMapping(value = "/search.do")
+	public ModelAndView searchBookInformation(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView("list");
 		List<Book> bookList = bookInformationService.searchBookByName((String)request.getParameter("bookname"));
 		HttpSession session = request.getSession();
-		mav.addObject("bookList", bookList);
+		System.out.println(bookList);
+		mav.addObject("booklist", bookList);
 		mav.addObject("username", session.getAttribute("username"));
 		return mav;
 	}
 	
-	@RequestMapping(value = "/rent")
+	@RequestMapping(value = "/rent.do")
 	public ModelAndView rentBook(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView("rent");
 		HttpSession session = request.getSession();
@@ -42,7 +43,7 @@ public class BookController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/rentbookInformation")
+	@RequestMapping(value = "/rentbookInformation.do")
 	public ModelAndView submitRentbookInformation(HttpServletRequest request, RentInformation rent) {
 		ModelAndView mav = new ModelAndView();
 		Date rightnow = new Date();
@@ -61,6 +62,23 @@ public class BookController {
 		}
 		mav.setViewName("home");
 		bookInformationService.submitRentInformation(rent);
+		return mav;
+	}
+	
+	@RequestMapping("/allCategory.do")
+	public ModelAndView allCategory() {
+		ModelAndView mav = new ModelAndView("categorylist");
+		List<String> categorylist = bookInformationService.allcategory();
+		mav.addObject("categorylist", categorylist);
+		return mav;
+	}
+	
+	@RequestMapping("/bookOfCategory.do")
+	public ModelAndView bookOfCategory(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView("list");
+		System.out.println((String)request.getParameter("categoryname"));
+		List<Book> booklist = bookInformationService.searchBookByCategory((String)request.getParameter("categoryname"));
+		mav.addObject("booklist", booklist);
 		return mav;
 	}
 	

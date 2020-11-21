@@ -26,7 +26,7 @@
 	<servlet-mapping>
 		<servlet-name>springDispatcherServlet</servlet-name>
 		<!-- 拦截当前项目下所有的请求 -->
-		<url-pattern>/</url-pattern>
+		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 	
 </web-app>

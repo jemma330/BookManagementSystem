@@ -5,7 +5,7 @@ public class User {
 	private int id;
 	private String username;
 	private String password;
-	private int gender = -1;
+	private String gender;
 	private String phone;
 	private String email;
 
@@ -33,11 +33,11 @@ public class User {
 		this.password = password;
 	}
 
-	public int getGender() {
+	public String getGender() {
 		return gender;
 	}
 
-	public void setGender(int gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 

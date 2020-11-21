@@ -31,8 +31,8 @@ function buttonClick(obj){
 		<div class="container-fluid">
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="#">Login/Register<span class="sr-only">(current)</span></a></li>
-					<li><a href="#">Link</a></li>
+					<li><a href="${pageContext.request.contextPath }/home">Login/Register<span class="sr-only">(current)</span></a></li>
+					<li><a href="${pageContext.request.contextPath }/home">Home</a></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">Personal Center<span class="caret"></span></a>
@@ -66,7 +66,7 @@ function buttonClick(obj){
 	<div style="margin-top: 80px">
 	</div>
 	<div style="padding-left: 300px; padding-right: 300px">
-		<form action="${pageContext.request.contextPath }/rent">
+		<form action="${pageContext.request.contextPath }/rent.do">
 			<input type="text" id="bookId" name="bookId"/>
 			<table class="table table-hover">
 				<tr>
@@ -76,13 +76,13 @@ function buttonClick(obj){
 					<td><b>剩余数量</b></td>
 					<td></td>
 				</tr>
-				<c:forEach items="${bookList }" var="book">
+				<c:forEach items="${booklist }" var="book">
 					<tr>
 						<td>${book.bookname }</td>
 						<td>${book.author }</td>
 						<td>${book.totalnumber }</td>
 						<td>${book.currentnumber }</td>
-						<td><button type="submit" id="${book.bookid }" onclick="buttonClick(this);">借阅</button></td>
+						<td><button type="submit" id="${book.bookid }" onclick="buttonClick(this);">rent</button></td>
 					</tr>
 				</c:forEach>
 			</table>

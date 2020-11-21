@@ -15,4 +15,8 @@ public interface BookInformationMapper {
 
 	List<RentInformation> checkRentInformationOnly(RentInformation rent);
 
+	List<String> allcategory();
+
+	List<Book> searchBookByCategory(String categoryname);
+
 }

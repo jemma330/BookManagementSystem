@@ -10,5 +10,4 @@ public class ComponentController {
 	public String homepage() {
 		return "home";
 	}
-	
 }

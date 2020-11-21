@@ -12,7 +12,13 @@
 	<insert id="submitRentInformation" parameterType="com.qdu.bean.RentInformation">
 		insert into user_book(username, bookid, bookname, day, startdate, enddate, state) values(#{username}, #{bookid}, #{bookname}, #{day}, #{startdate}, #{enddate}, #{state})
 	</insert>
-	<select id="checkRentInformationOnly" parameterType="String" resultType="com.qdu.bean.RentInformation">
+	<select id="checkRentInformationOnly" parameterType="com.qdu.bean.RentInformation" resultType="com.qdu.bean.RentInformation">
 		select * from user_book where username = #{username} and bookid = #{bookid}
+	</select>
+	<select id="allcategory" resultType="String">
+		select distinct category from books
+	</select>
+	<select id="searchBookByCategory" parameterType="String" resultType="com.qdu.bean.Book">
+		select * from books where category = #{categoryname}
 	</select>
 </mapper>
